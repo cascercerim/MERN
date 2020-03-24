@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://maria123:maria123@mern-qtk8t.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtToken": "jwtToken"
+}
