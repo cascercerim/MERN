@@ -23,13 +23,16 @@ router.get("/", auth, async (req, res) => {
         res.status(500).send("Server.error");
     }
 });
+
+// @route    POST api/auth
+// @desc     Authenticate user & get token
+// @access   Public
+
 router.post(
     "/",
     [
         check("email", "Please include a valid email").isEmail(),
-        check("password", "Password si required").exists({
-            min: 6
-        })
+        check("password", "Password is required").exists()
     ],
     async (req, res) => {
         const errors = validationResult(req);
@@ -40,14 +43,18 @@ router.post(
 
         try {
             let user = await User.findOne({ email });
+
             if (!user) {
-                return res.status(400)
+                return res
+                    .status(400)
                     .json({ errors: [{ msg: "Invalid credentials" }] });
             }
-            const isMatched = await bcrypt.compare(password, user.password);
+            const isMatch = await bcrypt.compare(password, user.password);
 
-            if (!isMatched) {
-                return res.status(400).json({ errors: [{ msg: "Invalid Credentials" }] });
+            if (!isMatch) {
+                return res
+                    .status(400)
+                    .json({ errors: [{ msg: "Invalid Credentials" }] });
             }
 
             // get payload which includes user id
