@@ -2,7 +2,7 @@
 
 Technologies used:
 
--Nodemon & Concurrently 
+-Nodemon & Concurrently: use 'npm run server'
 -bcryptjs
 -config
 -express
@@ -10,7 +10,6 @@ Technologies used:
 -gravatar
 -jsonwebtoken
 -mongoose
--request 
+-request
 
 Database: MONGODB Atlas
-

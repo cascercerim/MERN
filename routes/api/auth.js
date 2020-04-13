@@ -76,11 +76,11 @@ router.post(
                 (err, token) => {
                     if (err) throw err;
                     // if we dont get an error we will send token back to client
-                    res.json({ token });
+                    return res.json({ token });
                 }
             );
         } catch (err) {
-            console.error(err.message);
+            console.log(err.message);
             res.status(500).send("Server error");
         }
     });
