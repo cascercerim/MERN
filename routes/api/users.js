@@ -82,7 +82,7 @@ router.post(
                 (err, token) => {
                     if (err) throw err;
                     // if we dont get an error we will send token back to client
-                    return res.json({ token });
+                    res.json({ token });
                 });
         } catch (err) {
             console.log(err.message);

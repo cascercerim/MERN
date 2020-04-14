@@ -1,5 +1,7 @@
 # MERN
 
+run: npm run server
+
 Technologies used:
 
 -Nodemon & Concurrently: use 'npm run server'
